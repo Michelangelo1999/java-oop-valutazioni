@@ -15,21 +15,21 @@ public class Studente {
 	}
 	
 	//metodi
-	String calcolaEsito() {
-		String esito;
+	boolean promosso() {
+		Boolean promosso;
 		if(percAssenze > 50) {
-			esito = "bocciato";
+			promosso = false;
 		}else if(percAssenze < 50 && percAssenze > 25 && mediaVoti > 2) {
-			esito = "promosso";
+			promosso = true;
 		}else if(percAssenze < 50 && percAssenze > 25 && !(mediaVoti > 2)) {
-			esito = "bocciato";
+			promosso = false;
 		}else if(percAssenze < 25 && mediaVoti >= 2) {
-			esito = "promosso";
+			promosso = true;
 		}else {
-			esito = "NC";
+			promosso = false;
 		}
 		
-		return esito;
+		return promosso;
 	}
 	
 	String mostraPagella() {
@@ -40,8 +40,19 @@ public class Studente {
 		return pagella;
 	}
 	
+	String mostraEsito() {
+		String esito;
+		if(promosso()) {
+			esito = "promosso";
+		}else {
+			esito = "bocciato";
+		}
+		
+		return esito;
+	}
+	
 	String infoQuadriFormat(String format) {
-		return String.format(format, id, percAssenze, mediaVoti, calcolaEsito());
+		return String.format(format, id, percAssenze, mediaVoti, mostraEsito());
 	}
 
 }

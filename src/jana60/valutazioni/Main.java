@@ -26,12 +26,14 @@ public class Main {
 			
 			listaPagelle[i] = newStudent;
 			
-			if(newStudent.calcolaEsito().equalsIgnoreCase("promosso")) {
+			
+				
+			if(newStudent.promosso()) {
 				numeroPromossi ++;
 			}
 		}
 		
-		String intestazione = String.format("%15s %15s %15s", "ID", "Percentuale Assenze", "Media Voti", "Esito"); //voglio che mi stamnpi una stringa che occupi 15 caratteri, dopo quello metti l'intestazione della stringa
+		String intestazione = String.format("%15s %15s %15s %15s", "ID", "Percentuale Assenze", "Media Voti", "Esito"); //voglio che mi stamnpi una stringa che occupi 15 caratteri, dopo quello metti l'intestazione della stringa
 		System.out.println(intestazione);
 		
 		for(int i=0; i < listaPagelle.length; i++) {
